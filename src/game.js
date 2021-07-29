@@ -3,15 +3,16 @@ export default class Game {
     this.world = world;
     this.view = view;
     this.levels = levels;
-    
-    this.loop = this.loop.bind(this);
-
+    this.level = 0;
     this.activeKeys = new Set();
-    this.isMoving = false;
+
+    this.loop = this.loop.bind(this);
   }
 
   async init() {
     this.view.init();
+    this.world.setLevel(this.levels[this.level]);
+
     document.addEventListener('keydown', (event) => {
       switch (event.code) {
         case 'ArrowUp':

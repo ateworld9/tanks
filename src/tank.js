@@ -1,17 +1,19 @@
+import { CELL_SIZE } from './constants.js';
+
 export default class Tank {
   direction = 0;
-  x = 100;
-  y = 100;
+  x = 193;
+  y = 384;
   animationFrame = 0;
   frames = [
-    [0 * 32, 0 * 32, 32, 32],
-    [1 * 32, 0 * 32, 32, 32],
-    [6 * 32, 0 * 32, 32, 32],
-    [7 * 32, 0 * 32, 32, 32],
-    [4 * 32, 0 * 32, 32, 32],
-    [5 * 32, 0 * 32, 32, 32],
-    [2 * 32, 0 * 32, 32, 32],
-    [3 * 32, 0 * 32, 32, 32],
+    [0 * CELL_SIZE, 0 * CELL_SIZE, CELL_SIZE, CELL_SIZE],
+    [1 * CELL_SIZE, 0 * CELL_SIZE, CELL_SIZE, CELL_SIZE],
+    [6 * CELL_SIZE, 0 * CELL_SIZE, CELL_SIZE, CELL_SIZE],
+    [7 * CELL_SIZE, 0 * CELL_SIZE, CELL_SIZE, CELL_SIZE],
+    [4 * CELL_SIZE, 0 * CELL_SIZE, CELL_SIZE, CELL_SIZE],
+    [5 * CELL_SIZE, 0 * CELL_SIZE, CELL_SIZE, CELL_SIZE],
+    [2 * CELL_SIZE, 0 * CELL_SIZE, CELL_SIZE, CELL_SIZE],
+    [3 * CELL_SIZE, 0 * CELL_SIZE, CELL_SIZE, CELL_SIZE],
   ];
 
   update(activeKeys) {

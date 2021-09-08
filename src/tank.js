@@ -4,6 +4,7 @@ export default class Tank {
   direction = 0;
   x = 193;
   y = 384;
+  speed = 2;
   animationFrame = 0;
   frames = [
     [0 * CELL_SIZE, 0 * CELL_SIZE, CELL_SIZE, CELL_SIZE],
@@ -16,8 +17,8 @@ export default class Tank {
     [3 * CELL_SIZE, 0 * CELL_SIZE, CELL_SIZE, CELL_SIZE],
   ];
 
-  update(activeKeys) {
-    if (activeKeys.has('ArrowUp')) {
+  update(world, activeKeys) {
+    if (activeKeys.has('ArrowUp') && world.canMove(this)) {
       this._move(0, 'y', -1);
     } else if (activeKeys.has('ArrowLeft')) {
       this._move(2, 'x', -1);
@@ -33,7 +34,7 @@ export default class Tank {
   }
 
   _move(direction, axis, value) {
-    this[axis] += value;
+    this[axis] += this.speed * value;
     this.direction = direction;
     this.animationFrame ^= 1;
   }
